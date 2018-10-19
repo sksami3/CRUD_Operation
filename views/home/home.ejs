@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Home | Page</title>
+	
+	<!-- <script  src="jquery-3.3.1.js"></script>
+	<script  src="test.js"></script> -->
+</head>
+<body>
+		<h1>Welcome</h1>
+		<%
+		var a=new Date();
+		 %>
+		<h4>Time: <%=a %></h4>
+		<a href="#">Create New  </a> |
+		<a href="#">Log Out</a>
+		<br/><br/><br/>
+		<input placeholder="enter name" id="nam"/>
+		<button>Search</button>
+		<p id="par"></p>
+		<br/><br/><br/>
+		<table border="1">
+			<tr>
+				<th>Id</th>
+				<th>Password</th>
+				<th>Compirm Password</th>
+				<th>User Name</th>
+				<th>Type</th>
+			</tr>
+			<% for(var i=0;i<list.length;i++){%>
+
+				<tr>
+					<td><%= list[i].id %></td>
+					<td><%= list[i].pass %></td>
+					<td><%= list[i].cpass %></td>
+					<td><%= list[i].name %></td>
+					<td><%= list[i].type %></td>
+					<!-- <td> <a href="/home/edit/<%= list[i].id %>">Edit</a> | 
+					<a href="/home/delete/<%= list[i].id %>">Delete </a></td> -->
+				</tr>
+
+
+
+			<% } %>
+		</table>
+		
+</body>
+</html>

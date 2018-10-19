@@ -60,5 +60,49 @@ module.exports={
 			console.log("closed");
 		});
 
+	},
+
+	getResult:function(sql,params,callback)
+	{
+		connectionDB();
+		if(params==null)
+		{
+			connection.query(sql,function(error,result){
+
+				if(error)
+				{
+					console.log(error.stack);
+					callback([]);
+
+				}
+				else
+				{
+					callback(result);
+				}
+
+			});
+		}
+		
+		else
+		{
+			connection.query(sql,params,function(error,result){
+
+				if(error)
+				{
+					console.log(error.stack);
+					callback([]);
+
+				}
+				else
+				{
+					callback(result);
+				}
+
+			});
+		}
+
+		connection.end(function(){
+			console.log("Connection Closed...");
+		});
 	}
 }
